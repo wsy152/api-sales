@@ -1,7 +1,9 @@
-import { getCustomRepository } from "typeorm";
-import { ProductRepository } from "../repositories/producty_repository";
+import { ProductRepository } from "../typeorm/repositories/producty_repository";
 import AppError from "@shared/errors/app_error";
-import ProductsEntity from "../entities/products_entity";
+import { getCustomRepository } from "typeorm";
+import ProductsEntity from "../typeorm/entities/products_entity";
+
+
 
 interface IRequest {
   name: string;
@@ -9,8 +11,8 @@ interface IRequest {
   quantity: number;
 }
 
-export class CreateProductSercice {
-  public async execute({ name, price, quantity }: IRequest): Promise<ProductsEntity> {
+ class CreateProductSercice {
+   public async execute({ name, price, quantity }: IRequest): Promise<ProductsEntity> {
 
     const productsRepository = getCustomRepository(ProductRepository);
 
@@ -32,3 +34,4 @@ export class CreateProductSercice {
 
   }
 }
+export default CreateProductSercice;

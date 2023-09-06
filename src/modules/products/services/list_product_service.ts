@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm";
-import { ProductRepository } from "../repositories/producty_repository";
-import ProductsEntity from "../entities/products_entity";
+import { ProductRepository } from "../typeorm/repositories/producty_repository";
+import ProductsEntity from "../typeorm/entities/products_entity";
 
 
 export class ListProductSercice {

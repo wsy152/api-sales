@@ -24,6 +24,12 @@ export class createTableProducts1693936559175 implements MigrationInterface {
             scale:2,
           },
           {
+            name: 'quantity',
+            type: 'decimal',
+            precision: 10,
+            scale: 2,
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',

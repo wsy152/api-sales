@@ -12,7 +12,7 @@ class ProductsEntity {
   @Column('decimal')
   price: number;
 
-  @Column('int')
+  @Column('decimal')
   quantity: number;
 
   @CreateDateColumn()
