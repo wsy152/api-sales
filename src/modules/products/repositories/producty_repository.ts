@@ -13,8 +13,4 @@ export class ProductRepository extends Repository<ProductsEntity> {
     });
     return product;
   }
-
-
-
-
 }
