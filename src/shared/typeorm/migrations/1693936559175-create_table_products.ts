@@ -7,11 +7,9 @@ export class createTableProducts1693936559175 implements MigrationInterface {
         name: 'products',
         columns: [
           {
-            name:'id',
-            type: 'uuid',
+            name: 'id',
+            type: 'serial',
             isPrimary: true,
-            generationStrategy: 'uuid',
-            default: 'uuid_generate_v4()',
           },
           {
             name: 'name',
