@@ -6,7 +6,6 @@ import ProductsEntity from "../typeorm/entities/products_entity";
 
 interface IRequest {
   id: string;
-
 }
 
 
