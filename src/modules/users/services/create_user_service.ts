@@ -3,6 +3,7 @@ import { getCustomRepository } from "typeorm";
 
 import UsersEntity from "../typeorm/entities/users_entity";
 import { UsersRepository } from "../typeorm/repositories/users_repository";
+import { hash } from "bcryptjs";
 
 
 
@@ -23,10 +24,12 @@ class CreateUserSercice {
       throw new AppError('There is already one user with this email');
     }
 
+    const hashedPassword = await hash(password,8);
+
     const user = usersRepository.create({
       name,
       email,
-      password,
+      password: hashedPassword,
     });
 
     await usersRepository.save(user);
