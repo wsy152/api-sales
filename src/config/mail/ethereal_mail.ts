@@ -9,7 +9,7 @@ interface ITempleteVariable {
 
 
 interface IParsemailTemplate {
-  template: string;
+  file: string;
   variables: ITempleteVariable;
 }
 

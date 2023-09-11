@@ -27,7 +27,7 @@ export default class UpdateUserSercice {
     }
     const userUpdateEmail = await userRepository.findbyEmail(email);
 
-    if (userUpdateEmail && userUpdateEmail.id !== parseInt(id)){
+    if (userUpdateEmail && userUpdateEmail.id === parseInt(id)){
       throw new AppError('There is already one user with this email');
     }
 
@@ -44,9 +44,9 @@ export default class UpdateUserSercice {
       user.password = await hash(password, 8);
     }
 
-    if (userUpdateEmail && name != user.name) {
-      throw new AppError('There is already one product with this name');
-    }
+    // if (userUpdateEmail && name != user.name) {
+    //   throw new AppError('There is already one product with this name');
+    // }
 
     user.name = name;
     user.email = email;
