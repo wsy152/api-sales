@@ -15,7 +15,7 @@ export class ShowUserSercice {
 
     const userRepository = getCustomRepository(UsersRepository);
 
-    const user = await userRepository.findOne(id);
+    const user = await userRepository.findbyId(id);
 
     if (!user) {
       throw new AppError('Product is not found');

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { ListUserSercice } from "../services/list_user_service";
 import CreateUserSercice from "../services/create_user_service";
-import { UpdateUserSercice } from "../services/update_product_service";
+import { UpdateUserSercice } from "../services/update_user_service";
 import { ShowUserSercice } from "../services/show_user_service";
 import { DeleteUserSercice } from "../services/delete_user_service";
 
