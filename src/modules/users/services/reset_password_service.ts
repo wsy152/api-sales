@@ -24,6 +24,8 @@ class ResetForgotPasswordService {
 
     const userToken = await userTokenRepository.findbyToken(token);
 
+    console.log(userToken);
+
     if (!userToken) {
       throw new AppError('User Token does not exists');
     }
@@ -42,6 +44,8 @@ class ResetForgotPasswordService {
     }
 
     user.password = await hash(password,8);
+
+    await usersRepository.save(user);
 
     console.log(token);
 

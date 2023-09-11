@@ -25,6 +25,7 @@ class SendForgotPasswordService {
     if(!user){
       throw new AppError('User does not exists');
     }
+    console.log(user);
     const token = await userTokenRepository.generateToken(user.id);
 
     console.log(token);

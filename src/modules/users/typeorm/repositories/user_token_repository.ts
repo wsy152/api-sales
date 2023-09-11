@@ -13,19 +13,19 @@ export class UserTokenRepository extends Repository<UserTokenEntity> {
         token,
       },
     });
+    console.log(userToken);
     return userToken;
   }
 
   public async generateToken(userId: number): Promise<UserTokenEntity | undefined> {
-    const userToken = await this.findOne({
-      where: {
+    const userToken = await this.create({
         userId,
-      },
     });
 
     if (userToken) {
       await this.save(userToken);
     }
+    console.log(userToken);
     return userToken;
   }
 }
