@@ -3,6 +3,8 @@ import { getCustomRepository } from "typeorm";
 
 import { UsersRepository } from "../typeorm/repositories/users_repository";
 import { UserTokenRepository } from "../typeorm/repositories/user_token_repository";
+import EherealMail from "@config/mail/ethereal_mail";
+
 
 
 
@@ -26,9 +28,26 @@ class SendForgotPasswordService {
       throw new AppError('User does not exists');
     }
     console.log(user);
-    const token = await userTokenRepository.generateToken(user.id);
+    const {token} = await userTokenRepository.generateToken(user.id);
 
     console.log(token);
+
+
+    await EherealMail.sendMail({
+      to: {
+        name: user.name,
+        email: user.email
+      },
+      subject: 'API Vendas - Recuperação de senha',
+      templateData: {
+        template: `Ola {{name}}: {{token}}`,
+        variables: {
+          name: user.name,
+          token,
+        }
+      }
+
+    })
 
   }
 }

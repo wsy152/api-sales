@@ -17,7 +17,7 @@ export class UserTokenRepository extends Repository<UserTokenEntity> {
     return userToken;
   }
 
-  public async generateToken(userId: number): Promise<UserTokenEntity | undefined> {
+  public async generateToken(userId: number): Promise<UserTokenEntity> {
     const userToken = await this.create({
         userId,
     });
