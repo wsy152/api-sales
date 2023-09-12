@@ -36,7 +36,12 @@ export class createTableProducts1693936559175 implements MigrationInterface {
             name: 'updated_at',
             type: 'timestamp',
             default: 'now()',
-          }
+          },
+          {
+            name: 'active',
+            type: 'boolean',
+            default: true,
+          },
 
         ]
       }))

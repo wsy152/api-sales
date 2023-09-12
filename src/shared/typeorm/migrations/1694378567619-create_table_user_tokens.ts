@@ -32,7 +32,12 @@ export class createTableUserTokens1694378567619 implements MigrationInterface {
               name: 'updated_at',
               type: 'timestamp',
               default: 'now()',
-            }
+            },
+            {
+              name: 'active',
+              type: 'boolean',
+              default: true,
+            },
 
           ],
           foreignKeys:[
