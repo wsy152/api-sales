@@ -8,7 +8,7 @@ import { DeleteCutomerSercice } from "../services/delete_customer_service";
 
 
 
-export default class UsersController {
+export default class CustumersController {
   public async index(req: Request, res: Response): Promise<Response> {
     const listCustomer = new ListCustomerSercice();
 
