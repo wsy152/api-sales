@@ -19,7 +19,7 @@ export class ShowCutomerSercice {
     const custumer = await customerRepository.findbyId(id);
 
     if (!custumer) {
-      throw new AppError('Product is not found');
+      throw new AppError('Cutomer is not found');
     }
 
     return custumer;

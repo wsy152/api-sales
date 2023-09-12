@@ -18,12 +18,12 @@ export default class UpdateCutomerSercice {
     const customer = await customerRepository.findOne(id);
 
     if (!customer) {
-      throw new AppError('User is not found');
+      throw new AppError('Customer is not found');
     }
     const userUpdateEmail = await customerRepository.findbyEmail(email);
 
     if (userUpdateEmail && userUpdateEmail.id === parseInt(id)) {
-      throw new AppError('There is already one user with this email');
+      throw new AppError('There is already one customer with this email');
     }
 
     customer.name = name;

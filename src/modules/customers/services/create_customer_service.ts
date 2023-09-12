@@ -19,7 +19,7 @@ class CreateCutomerSercice {
     const emailExists = await cutomerRepository.findbyEmail(email);
 
     if (emailExists) {
-      throw new AppError('There is already one user with this email');
+      throw new AppError('There is already one customer with this email');
     }
 
     const cutomer = cutomerRepository.create({
