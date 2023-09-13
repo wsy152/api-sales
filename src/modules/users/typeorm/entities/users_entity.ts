@@ -23,6 +23,9 @@ class UsersEntity {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @Column()
+  active: boolean;
 }
 
 export default UsersEntity;

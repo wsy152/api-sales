@@ -19,7 +19,7 @@ routes.use('/password', passwordRouter);
 
 routes.use('/profile',profileRouter);
 
-routes.use('/custumer', cutumersRouter);
+routes.use('/customers', cutumersRouter);
 
 
 export default routes
