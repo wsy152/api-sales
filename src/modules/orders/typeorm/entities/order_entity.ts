@@ -15,9 +15,6 @@ class OrderEntity {
   @OneToMany(() => OrdersProductsEntity, orderProducts => orderProducts.order,{cascade: true})
   orderProducts: OrdersProductsEntity[]
 
-
-
-
   @CreateDateColumn()
   created_at: Date;
 

@@ -22,6 +22,12 @@ class OrdersProductsEntity {
   @JoinColumn({ name: 'productId' })
   product: OrderEntity
 
+  @Column()
+  orderId: string;
+
+  @Column()
+  productId: string;
+
   @CreateDateColumn()
   created_at: Date;
 
