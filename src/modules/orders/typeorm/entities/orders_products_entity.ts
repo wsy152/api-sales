@@ -15,7 +15,7 @@ class OrdersProductsEntity {
   quantity: number;
 
   @ManyToOne(() => OrderEntity, order => order.orderProducts)
-  @JoinColumn({ name: 'ordersId' })
+  @JoinColumn({ name: 'orderId' })
   order: OrderEntity
 
   @ManyToOne(() => ProductsEntity, product => product.orderProducts)

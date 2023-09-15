@@ -78,18 +78,13 @@ class CreateOrderSercice {
     const updatedProductQuantity = orderProducts.map(
       product => ({
         id: parseInt(product.productId),
-        quantity: existsProducts.filter(p => p.id === product.id)[0].quantity - product.quantity
+        quantity: existsProducts.filter(p => p.id === parseInt(product.productId))[0].quantity - product.quantity
       })
     );
 
     await productsRepository.save(updatedProductQuantity);
 
-
-
     return order;
-
-
-
   }
 }
 export default CreateOrderSercice;

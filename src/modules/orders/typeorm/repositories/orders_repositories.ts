@@ -9,8 +9,6 @@ interface IProduct{
   quantity: number;
 }
 
-
-
 interface IRequest {
   customer: CustumerEntity
   products: IProduct[]
@@ -21,12 +19,31 @@ interface IRequest {
 export class OrdersRepository extends Repository<OrderEntity> {
 
   public async findbyId(id: string): Promise<OrderEntity | undefined> {
-    const order = this.findOne(id,{
-      relations: ['orderProducts','customer']
-    });
+    const order = await this.createQueryBuilder("order")
+      .select([
+        "order.id",
+        "order.updated_at",
+        "order.active",
+        "customer.id",
+        "customer.name",
+        "customer.email",
+        "customer.active",
+        "orderProducts.id",
+        "orderProducts.price",
+        "orderProducts.quantity",
+        "orderProducts.orderId",
+        "orderProducts.productId",
+        "orderProducts.active",
+      ])
+      .leftJoinAndSelect("order.orderProducts", "orderProducts")
+      .leftJoin("order.customer", "customer")
+      .where("order.id = :id", { id })
+      .getOne();
 
     return order;
   }
+
+
 
   public async createOrder({ customer, products }: IRequest): Promise<OrderEntity> {
     const order = this.create({

@@ -8,6 +8,9 @@ const ordersRouter = Router();
 const ordersController = new OrdersController();
 
 
+ordersRouter.get('/', ordersController.index);
+
+
 ordersRouter.get('/:id',
   celebrate({
     [Segments.PARAMS]: {
